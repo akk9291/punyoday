@@ -33,6 +33,10 @@
         <!-- Acharya Vidyasagar Ji Maharaj Blessing Card -->
         <!-- Acharya Vidyasagar Ji Maharaj Blessing Block (Plain Layout) -->
         <div class="max-w-5xl mx-auto space-y-1 py-2">
+            <div class="mb-2">
+                <img src="{{ asset('images/acharya_vidyasagar_ji.png') }}" alt="आचार्यश्रेष्ठ श्री १०८ विद्यासागर जी महाराज" class="w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] md:w-[400px] md:h-[400px] mx-auto object-contain drop-shadow-2xl">
+            </div>
+
             <div class="text-amber-400 font-extrabold text-base sm:text-lg md:text-xl flex items-center justify-center gap-2">
                 <span>👑</span> <span>अतिशयकारी आशीर्वाद</span> <span>👑</span>
             </div>
@@ -92,7 +96,7 @@
             ];
         @endphp
 
-        <div class="pt-1 sm:pt-2 max-w-7xl mx-auto space-y-3"
+        <div class="-mt-12 sm:-mt-16 md:-mt-20 relative z-20 max-w-7xl mx-auto space-y-3"
              x-data="{
                 activeIdx: 0,
                 total: {{ count($allMaharajs) }},
@@ -263,14 +267,16 @@
                 <div class="max-w-6xl mx-auto">
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                         @foreach($advisers as $adv)
-                            <div class="bg-maroon-950/85 p-5 rounded-2xl border-2 border-amber-500/50 text-center space-y-4 shadow-xl backdrop-blur-md transform hover:-translate-y-1 transition duration-300 flex flex-col items-center justify-between">
-                                <!-- Top Designation Title Pill -->
-                                <div class="inline-block bg-amber-500/20 text-amber-300 border border-amber-400/50 text-xs sm:text-sm font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                                    {{ $adv->designation }}
+                            <div class="bg-maroon-950/85 p-5 rounded-2xl border-2 border-amber-500/50 text-center shadow-xl backdrop-blur-md transform hover:-translate-y-1 transition duration-300 flex flex-col items-center justify-start h-full">
+                                <!-- Top Designation Title Pill (Fixed Height Container) -->
+                                <div class="h-8 flex items-center justify-center">
+                                    <div class="inline-block bg-amber-500/20 text-amber-300 border border-amber-400/50 text-xs sm:text-sm font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                                        {{ $adv->designation }}
+                                    </div>
                                 </div>
 
-                                <!-- Photo Frame in Center -->
-                                <div class="my-1">
+                                <!-- Photo Frame in Center (Aligned in 1 straight horizontal line) -->
+                                <div class="my-4">
                                     @if(!empty($adv->photo) || !empty($adv->photo_path))
                                         <img src="{{ asset('storage/' . ($adv->photo ?? $adv->photo_path)) }}" alt="{{ $adv->name }}" class="w-24 h-24 sm:w-28 sm:h-28 rounded-full mx-auto object-cover border-2 border-amber-400 shadow-md">
                                     @else
@@ -281,7 +287,7 @@
                                 </div>
 
                                 <!-- Leader Name Below -->
-                                <div class="font-tiro text-amber-200 font-extrabold text-base sm:text-lg leading-snug pt-1">
+                                <div class="font-tiro text-amber-200 font-extrabold text-base sm:text-lg leading-snug flex-1 flex items-center justify-center text-center">
                                     {{ $adv->name }}
                                 </div>
                             </div>

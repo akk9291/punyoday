@@ -117,6 +117,9 @@ class SanskarShivirSeeder extends Seeder
         ]);
 
         // 3. Create Dynamic CMS Sections for Shivir 2026
+        ShivirSectionItem::whereIn('shivir_section_id', ShivirSection::where('shivir_id', $shivir2026->id)->pluck('id'))->delete();
+        ShivirSection::where('shivir_id', $shivir2026->id)->delete();
+
         $secPunyarjak = ShivirSection::create([
             'shivir_id' => $shivir2026->id,
             'title' => 'शिविर पुण्यार्जक परिवार',
@@ -233,7 +236,7 @@ class SanskarShivirSeeder extends Seeder
         $secOrganizers = ShivirSection::create([
             'shivir_id' => $shivir2026->id,
             'title' => 'आयोजक समिति',
-            'subtitle' => 'दिगंबर जैन धर्मप्रभावना समिति एवं सकल दिगंबर जैन समाज, इंदौर',
+            'subtitle' => '',
             'description' => 'शिविर के मुख्य आयोजक।',
             'background' => 'bg-maroon-900',
             'sort_order' => 4,
@@ -241,7 +244,7 @@ class SanskarShivirSeeder extends Seeder
         ]);
 
         $organizerItems = [
-            ['name' => 'आयोजक – श्री दिगंबर जैन धर्मप्रभावना समिति 2026 इंदौर', 'designation' => 'आयोजक – श्री दिगंबर जैन धर्मप्रभावना समिति 2026 इंदौर', 'sort_order' => 1],
+            ['name' => 'आयोजक – श्री दिगंबर जैन धर्मप्रभावना समिति 2026, इंदौर', 'designation' => 'आयोजक – श्री दिगंबर जैन धर्मप्रभावना समिति 2026, इंदौर', 'sort_order' => 1],
             ['name' => 'विनीत – सकल दिगंबर जैन समाज, इंदौर', 'designation' => 'विनीत – सकल दिगंबर जैन समाज, इंदौर', 'sort_order' => 2],
         ];
 
