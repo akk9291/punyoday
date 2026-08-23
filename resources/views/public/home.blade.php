@@ -176,17 +176,15 @@
                             {{ str_replace('🚩 ', '', $punyarjak->designation ?? 'शिविर पुण्यार्जक') }}
                         </div>
 
-                        <!-- Family Photo (Rectangular Landscape Frame) -->
-                        @if($punyarjak->photo || $punyarjak->photo_path)
-                            @php
-                                $photoRelPath = $punyarjak->photo ?? $punyarjak->photo_path;
-                                $fileName = basename($photoRelPath);
-                                $photoUrl = asset('images/' . $fileName);
-                            @endphp
-                            <div class="my-2 w-full">
-                                <img src="{{ $photoUrl }}" alt="{{ $punyarjak->name }}" class="w-full max-w-md h-56 sm:h-64 rounded-2xl mx-auto border-4 border-maroon-900 object-cover shadow-xl">
-                            </div>
-                        @endif
+                        <!-- Family Photo (Rectangular Landscape Frame from public/images/) -->
+                        @php
+                            $imgSrc = str_contains($punyarjak->name, 'आलोक') 
+                                ? asset('images/alok_jain.jpg') 
+                                : asset('images/akash_jain.jpg');
+                        @endphp
+                        <div class="my-2 w-full">
+                            <img src="{{ $imgSrc }}" alt="{{ $punyarjak->name }}" class="w-full max-w-md h-56 sm:h-64 rounded-2xl mx-auto border-4 border-maroon-900 object-cover shadow-xl">
+                        </div>
 
                         <!-- Family Name & Relation (100% Identical Font, Size, Weight & Color) -->
                         <div class="font-tiro text-lg sm:text-xl lg:text-2xl font-extrabold text-maroon-950 leading-snug space-y-1">
