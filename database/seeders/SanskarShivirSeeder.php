@@ -135,7 +135,7 @@ class SanskarShivirSeeder extends Seeder
             'name' => 'चामुण्डराय श्रीमंत सेठ आकाश - दीपिका, आरव एवं आद्विक जैन (इंदौर)',
             'designation' => 'शिविर पुण्यार्जक',
             'department' => 'सीमा - सतीश जी जैन (बिलासपुर)',
-            'photo' => 'punyarjak/akash_jain.jpg',
+            'photo' => 'akash_jain.jpg',
             'sort_order' => 1,
         ]);
 
@@ -144,7 +144,7 @@ class SanskarShivirSeeder extends Seeder
             'name' => 'चामुण्डराय श्रीमंत सेठ आलोक - मधु, आश्रय एवं आर्यन जैन (इंदौर)',
             'designation' => 'शिविर मुख्य संयोजक',
             'department' => 'अर्चना - देवेन्द्र जी जैन (भोपाल)',
-            'photo' => 'punyarjak/alok_jain.jpg',
+            'photo' => 'alok_jain.jpg',
             'sort_order' => 2,
         ]);
 
