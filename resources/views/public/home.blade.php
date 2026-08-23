@@ -180,9 +180,7 @@
                         @if($punyarjak->photo || $punyarjak->photo_path)
                             @php
                                 $photoRelPath = $punyarjak->photo ?? $punyarjak->photo_path;
-                                $photoUrl = file_exists(public_path('storage/' . $photoRelPath)) 
-                                    ? asset('storage/' . $photoRelPath) 
-                                    : (file_exists(public_path('images/' . $photoRelPath)) ? asset('images/' . $photoRelPath) : asset('storage/' . $photoRelPath));
+                                $photoUrl = asset('images/' . $photoRelPath);
                             @endphp
                             <div class="my-2 w-full">
                                 <img src="{{ $photoUrl }}" alt="{{ $punyarjak->name }}" class="w-full max-w-md h-56 sm:h-64 rounded-2xl mx-auto border-4 border-maroon-900 object-cover shadow-xl">
