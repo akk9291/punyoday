@@ -40,39 +40,36 @@ class RegistrationController extends Controller
         }
 
         $validated = $request->validate([
-            // Step 1
             'full_name' => 'required|string|max:100',
+            'surname' => 'nullable|string|max:100',
             'father_name' => 'required|string|max:100',
             'mother_name' => 'nullable|string|max:100',
+            'marital_status' => 'nullable|string|max:100',
             'dob' => 'required|date|before:today',
             'mobile' => 'required|digits:10',
             'whatsapp' => 'nullable|digits:10',
             'email' => 'nullable|email|max:100',
+            'emergency_contact_name' => 'required|string|max:100',
+            'emergency_contact_number' => 'required|digits:10',
+            'emergency_relation' => 'nullable|string|max:100',
             'address' => 'required|string|max:255',
             'city' => 'required|string|max:100',
             'district' => 'required|string|max:100',
             'state' => 'required|string|max:100',
             'pincode' => 'required|digits:6',
-
-            // Step 2
             'education' => 'nullable|string|max:100',
+            'family_members_count' => 'nullable|string|max:50',
+            'family_occupation' => 'nullable|string|max:100',
             'occupation' => 'nullable|string|max:100',
             'family_info' => 'nullable|string|max:255',
             'social_org' => 'nullable|string|max:150',
             'social_position' => 'nullable|string|max:100',
             'previous_shivir_attended' => 'nullable|boolean',
             'previous_shivir_count' => 'nullable|integer|min:0',
-
-            // Step 3
-            'emergency_contact_name' => 'required|string|max:100',
-            'emergency_contact_number' => 'required|digits:10',
+            'aadhaar_number' => 'nullable|string|max:20',
             'blood_group' => 'nullable|string|max:10',
-
-            // Step 4
             'photo' => 'nullable|image|mimes:jpeg,jpg,png,webp|max:2048',
             'id_document' => 'nullable|file|mimes:jpeg,jpg,png,pdf|max:4096',
-
-            // Step 5
             'rules_accepted' => 'required|accepted',
         ], [
             'full_name.required' => 'कृपया पूरा नाम दर्ज करें।',

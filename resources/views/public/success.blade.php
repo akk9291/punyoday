@@ -11,7 +11,6 @@
                 ✓
             </div>
             <h1 class="font-tiro text-3xl sm:text-4xl font-bold text-amber-200 mb-1">जय जिनेन्द्र! पंजीयन सफल हुआ</h1>
-            <p class="text-emerald-100 text-sm sm:text-base">आपका पंजीयन सफलतापूर्वक रिकॉर्ड कर लिया गया है।</p>
         </div>
 
         <!-- Registration Slip Details Body -->
@@ -34,7 +33,6 @@
                 <div class="p-3 bg-white border border-slate-300 rounded-xl shadow-sm">
                     <img src="{{ $qrDataUri }}" alt="QR Code" class="w-44 h-44">
                 </div>
-                <div class="text-xs text-slate-500 mt-2">शिविर स्थल पर सत्यापन एवं कमरा आवंटन हेतु इसे दिखाएं</div>
             </div>
 
             <!-- Participant Information Summary -->
@@ -61,10 +59,7 @@
                 </div>
             </div>
 
-            <!-- Room Allocation Note -->
-            <div class="bg-amber-100/70 border border-amber-300 rounded-xl p-4 text-xs sm:text-sm text-amber-900 font-medium">
-                🏢 <strong>आवास एवं कमरा आवंटन:</strong> ऑनलाइन केवल पंजीयन होता है। जब आप शिविर स्थल अशोकनगर पहुंचेंगे, तब प्रवेश काउंटर पर इस क्यूआर कोड को दिखाकर कमरा आवंटित कराया जाएगा।
-            </div>
+
 
             <!-- Action Buttons -->
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 border-t border-slate-200">

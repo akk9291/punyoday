@@ -31,7 +31,7 @@ class SanskarShivirTest extends TestCase
 
     public function test_participant_can_submit_registration()
     {
-        $shivir = Shivir::where('slug', 'sanskar-shivir-ashoknagar-2026')->first();
+        $shivir = Shivir::where('status', 'registration_open')->first();
 
         $response = $this->post("/shivir/{$shivir->slug}/register", [
             'full_name' => 'आलोक जैन परीक्षण',

@@ -15,17 +15,11 @@ class RegistrationService
     {
         $prefix = $shivir->prefix ?? ('SHIVIR-' . $shivir->year . '-');
         
-        $lastRegistration = Registration::where('shivir_id', $shivir->id)
-            ->latest('id')
-            ->first();
+        $count = Registration::where('shivir_id', $shivir->id)->count();
+        $nextSeq = $count + 1;
 
-        if (!$lastRegistration) {
-            $nextSeq = 1;
-        } else {
-            $lastNum = $lastRegistration->registration_number;
-            $parts = explode('-', $lastNum);
-            $lastSeq = (int) end($parts);
-            $nextSeq = $lastSeq + 1;
+        while (Registration::where('registration_number', $prefix . str_pad($nextSeq, 5, '0', STR_PAD_LEFT))->exists()) {
+            $nextSeq++;
         }
 
         return $prefix . str_pad($nextSeq, 5, '0', STR_PAD_LEFT);
